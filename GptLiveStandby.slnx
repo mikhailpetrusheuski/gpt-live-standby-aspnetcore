@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/LiveGateway/LiveGateway.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/LiveGateway.Tests/LiveGateway.Tests.csproj" />
+  </Folder>
+</Solution>

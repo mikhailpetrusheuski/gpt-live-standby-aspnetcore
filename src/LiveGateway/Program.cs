@@ -33,17 +33,25 @@ app.MapPost("/live/session", async (
     if (sdpOffer.Length is < 10 or > 1_000_000)
         return Results.BadRequest("Invalid SDP offer.");
 
-    var payload = LiveSessionRequest.Create(sdpOffer, options.Value);
+    var o = options.Value;
+    var payload = new
+    {
+        session = new
+        {
+            model = o.Model,
+            instructions = o.Instructions,
+            wake_policy = new { type = "speech", vad_threshold = o.VadThreshold },
+            idle_timeout_s = o.IdleTimeoutSeconds
+        },
+        transport = new { type = "webrtc", sdp = sdpOffer }
+    };
 
     using var response = await clients
         .CreateClient("openai-live")
         .PostAsJsonAsync("live/sessions", payload, cancellationToken);
 
     var json = await response.Content.ReadAsStringAsync(cancellationToken);
-
-    return Results.Content(
-        json,
-        "application/json",
+    return Results.Content(json, "application/json",
         statusCode: (int)response.StatusCode);
 });
 

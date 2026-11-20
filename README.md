@@ -6,6 +6,8 @@ A small ASP.NET Core gateway that creates OpenAI GPT-Live WebRTC sessions with a
 [![.NET 8](https://img.shields.io/badge/.NET-8-512BD4)](https://dotnet.microsoft.com/)
 [![Stars](https://img.shields.io/github/stars/mikhailpetrusheuski/gpt-live-standby-aspnetcore?style=social)](https://github.com/mikhailpetrusheuski/gpt-live-standby-aspnetcore/stargazers)
 
+Read the write-up: [OpenAI GPT-Live Just Made Silence 60% Cheaper](https://medium.com/@mikhail.petrusheuski/openai-gpt-live-just-made-silence-60-cheaper-cca50e30be0d).
+
 ## What is here
 
 | Path | Purpose |
